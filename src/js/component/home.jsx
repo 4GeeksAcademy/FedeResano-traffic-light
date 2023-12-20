@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Home = () => {
-	const [selectedColor, setColor] = useState("red");
+	const [selectedColor, setSelectedColor] = useState("red");
 
 	const cycleClick = () => {
 		const lightOrder = ["red", "yellow", "green"];
@@ -10,26 +10,27 @@ const Home = () => {
 
 		const nextIndex = (currentIndex + 1) % lightOrder.length;
 
-		setColor(lightOrder[nextIndex]);
+		setSelectedColor(lightOrder[nextIndex]);
 	};
 
 
 	return (
 		<div className="container">
 			<div className="traffic-light">
-				<div
-					onClick={() => setColor("red")}
-					className={"light" + (selectedColor === "red" ? "glow" : "")} id="red-light"></div>
-				<div
-					onClick={() => setColor("yellow")}
-					className={"light" + (selectedColor === "yellow" ? "glow" : "")} id="yellow-light"></div>
-				<div
-					onClick={() => setColor("green")}
-					className={"light" + (selectedColor === "green" ? "glow" : "")} id="green-light"></div>
+				{["red", "yellow", "green"].map((color) => (
+					<div
+						key={color}
+						onClick={() => setSelectedColor(color)}
+						className={"light" + (selectedColor === color ? " glow" : "")}
+						id={`${color}-light`}
+					></div>
+				))}
 			</div>
-			<button
-				onClick={cycleClick}
-				className="btn">Cycle</button>
+			<div className="container">
+				<button onClick={cycleClick} className="btn btn-light">
+					Cycle
+				</button>
+			</div>
 		</div>
 	);
 };
