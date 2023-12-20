@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 
 const Home = () => {
 	const [selectedColor, setColor] = useState("red");
@@ -19,21 +19,19 @@ const Home = () => {
 			<div className="traffic-light">
 				<div
 					onClick={() => setColor("red")}
-					className={"light" + (selectedColor === "red") ? "glow" : ""} id="red-light"></div>
+					className={"light" + (selectedColor === "red" ? "glow" : "")} id="red-light"></div>
 				<div
-					onClick={() => setColor("red")}
-					className={"light" + (selectedColor === "yellow") ? "glow" : ""} id="yellow-light"></div>
+					onClick={() => setColor("yellow")}
+					className={"light" + (selectedColor === "yellow" ? "glow" : "")} id="yellow-light"></div>
 				<div
-					onClick={() => setColor("red")}
-					className={"light" + (selectedColor === "green") ? "glow" : ""} id="green-light"></div>
+					onClick={() => setColor("green")}
+					className={"light" + (selectedColor === "green" ? "glow" : "")} id="green-light"></div>
 			</div>
 			<button
-				onClick={() => cycleClick}
+				onClick={cycleClick}
 				className="btn">Cycle</button>
 		</div>
 	);
 };
-
-
 
 export default Home;
