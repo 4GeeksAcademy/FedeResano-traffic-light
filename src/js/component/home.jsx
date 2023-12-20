@@ -30,9 +30,6 @@ const Home = () => {
 			<button
 				onClick={() => cycleClick}
 				className="btn">Cycle</button>
-			<button
-				onClick={() => }
-				className="btn">Add purple light</button>
 		</div>
 	);
 };
